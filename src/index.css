@@ -16,21 +16,21 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 30% 8%;
 
-    /* Medical Primary - Deep Medical Blue */
-    --primary: 200 98% 39%;
+    /* Medical Primary - Professional Teal */
+    --primary: 180 85% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 200 95% 85%;
-    --primary-dark: 200 98% 25%;
+    --primary-light: 180 70% 85%;
+    --primary-dark: 180 90% 25%;
 
-    /* Medical Secondary - Teal Accent */
-    --secondary: 170 76% 42%;
+    /* Medical Secondary - Vibrant Orange */
+    --secondary: 25 95% 55%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-light: 170 60% 85%;
+    --secondary-light: 25 85% 85%;
 
-    /* Medical Tertiary - Soft Green */
-    --tertiary: 140 40% 55%;
+    /* Medical Tertiary - Fresh Green */
+    --tertiary: 120 65% 45%;
     --tertiary-foreground: 0 0% 100%;
-    --tertiary-light: 140 35% 88%;
+    --tertiary-light: 120 50% 85%;
 
     /* Neutral Medical Grays */
     --muted: 210 15% 94%;
@@ -88,18 +88,18 @@
     --popover: 210 45% 8%;
     --popover-foreground: 210 15% 90%;
 
-    --primary: 200 98% 55%;
+    --primary: 180 85% 55%;
     --primary-foreground: 210 50% 6%;
-    --primary-light: 200 95% 75%;
-    --primary-dark: 200 98% 35%;
+    --primary-light: 180 70% 85%;
+    --primary-dark: 180 90% 35%;
 
-    --secondary: 170 76% 52%;
+    --secondary: 25 95% 65%;
     --secondary-foreground: 210 50% 6%;
-    --secondary-light: 170 60% 75%;
+    --secondary-light: 25 85% 85%;
 
-    --tertiary: 140 40% 65%;
+    --tertiary: 120 65% 55%;
     --tertiary-foreground: 210 50% 6%;
-    --tertiary-light: 140 35% 78%;
+    --tertiary-light: 120 50% 85%;
 
     --muted: 210 40% 12%;
     --muted-foreground: 210 15% 65%;

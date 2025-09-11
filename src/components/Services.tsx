@@ -8,12 +8,17 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import ServiceDetails from '@/components/ServiceDetails';
 import laboratoryImage from '@/assets/laboratory.jpg';
 import pharmacyOperationsImage from '@/assets/pharmacy-operations.jpg';
 
 const Services = () => {
-  const services = [
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
+  const servicesData = [
     {
       icon: <Shield className="text-primary" size={48} />,
       title: "Local Trade Representative (LTR) & Brand Management",
@@ -24,7 +29,25 @@ const Services = () => {
         "Local partnership development",
         "Market intelligence and analysis"
       ],
-      image: laboratoryImage
+      image: laboratoryImage,
+      detailedInfo: {
+        process: [
+          "Initial market assessment and competitive analysis",
+          "Develop comprehensive market entry strategy",
+          "Establish local partnerships and distribution networks",
+          "Implement brand positioning and marketing campaigns",
+          "Monitor performance and optimize strategies"
+        ],
+        benefits: [
+          "Faster market penetration with reduced risks",
+          "Access to established local networks",
+          "Regulatory compliance expertise",
+          "Cost-effective market expansion",
+          "Ongoing support and monitoring"
+        ],
+        timeline: "3-6 months for full market entry strategy implementation",
+        cost: "Starting from KES 500,000 - customized based on scope"
+      }
     },
     {
       icon: <FileText className="text-secondary" size={48} />,
@@ -36,7 +59,25 @@ const Services = () => {
         "Documentation preparation",
         "Regulatory submission support"
       ],
-      image: pharmacyOperationsImage
+      image: pharmacyOperationsImage,
+      detailedInfo: {
+        process: [
+          "Regulatory landscape assessment",
+          "Documentation review and preparation",
+          "Submission to Pharmacy & Poisons Board",
+          "Follow-up and compliance monitoring",
+          "Post-registration support and maintenance"
+        ],
+        benefits: [
+          "100% compliance with Kenyan regulations",
+          "Expedited approval processes",
+          "Reduced regulatory risks",
+          "Expert guidance throughout",
+          "Ongoing compliance support"
+        ],
+        timeline: "6-12 months depending on product complexity",
+        cost: "Starting from KES 300,000 per product registration"
+      }
     },
     {
       icon: <Stethoscope className="text-tertiary" size={48} />,
@@ -48,7 +89,25 @@ const Services = () => {
         "Quality assurance programs",
         "Healthcare consultancy services"
       ],
-      image: laboratoryImage
+      image: laboratoryImage,
+      detailedInfo: {
+        process: [
+          "Operations assessment and gap analysis",
+          "System optimization and workflow design",
+          "Staff training and capacity building",
+          "Quality management system implementation",
+          "Ongoing monitoring and improvement"
+        ],
+        benefits: [
+          "Improved operational efficiency",
+          "Enhanced patient safety and care",
+          "Reduced operational costs",
+          "Regulatory compliance assurance",
+          "Scalable business growth"
+        ],
+        timeline: "2-4 months for complete system overhaul",
+        cost: "Starting from KES 750,000 - varies by facility size"
+      }
     }
   ];
 
@@ -86,7 +145,7 @@ const Services = () => {
 
         {/* Main Services */}
         <div className="space-y-20">
-          {services.map((service, index) => (
+          {servicesData.map((service, index) => (
             <div 
               key={index}
               className={`grid lg:grid-cols-2 gap-12 items-center ${
@@ -115,7 +174,14 @@ const Services = () => {
                   ))}
                 </div>
 
-                <Button className="mt-6" size="lg">
+                <Button 
+                  className="mt-6" 
+                  size="lg"
+                  onClick={() => {
+                    setSelectedService(service);
+                    setIsDetailsOpen(true);
+                  }}
+                >
                   Learn More
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
@@ -186,6 +252,13 @@ const Services = () => {
             </div>
           </div>
         </div>
+
+        {/* Service Details Modal */}
+        <ServiceDetails 
+          isOpen={isDetailsOpen}
+          onClose={() => setIsDetailsOpen(false)}
+          service={selectedService}
+        />
       </div>
     </section>
   );

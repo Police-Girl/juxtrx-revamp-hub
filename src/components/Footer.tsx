@@ -9,7 +9,7 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import jmrcLogo from '@/assets/jmrc-logo-rounded.png';
+const jmrcLogo = '/lovable-uploads/2e2a9a4d-0092-4ccf-b41a-e2a5197782fd.png';
 
 const Footer = () => {
   const quickLinks = [

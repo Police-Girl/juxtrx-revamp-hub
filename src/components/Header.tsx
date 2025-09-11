@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import jmrcLogo from '@/assets/jmrc-logo-rounded.png';
+const jmrcLogo = '/lovable-uploads/2e2a9a4d-0092-4ccf-b41a-e2a5197782fd.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
