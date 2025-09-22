@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import { Menu, X, Phone, Mail, Clock } from 'lucide-react';
+import { Menu, X, Phone, Mail, Clock, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 const jmrcLogo = '/lovable-uploads/2e2a9a4d-0092-4ccf-b41a-e2a5197782fd.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Contact', href: '/#contact' },
+    { name: 'Shop', href: '/shop' },
   ];
 
   return (
@@ -44,7 +46,7 @@ const Header = () => {
               <img 
                 src={jmrcLogo} 
                 alt="JMRC Intel - Just Mercurial Research & Creatives" 
-                className="h-16 w-16 rounded-full object-cover shadow-medium"
+                className="h-12 w-12 rounded-full object-contain shadow-medium bg-white/10 p-1"
               />
               <div className="hidden sm:block">
                 <h1 className="text-2xl font-bold text-primary">JuxT Remedica</h1>
@@ -55,17 +57,25 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <Button variant="default" size="sm" className="ml-4">
-                Get Started
-              </Button>
+              <div className="flex items-center gap-3 ml-4">
+                <Link to="/shop">
+                  <Button variant="outline" size="sm" className="flex items-center gap-2">
+                    <ShoppingBag size={16} />
+                    Shop
+                  </Button>
+                </Link>
+                <Button variant="default" size="sm">
+                  Get Started
+                </Button>
+              </div>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -83,18 +93,26 @@ const Header = () => {
             <div className="lg:hidden py-4 border-t border-border animate-fade-in-up">
               <nav className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
-                <Button variant="default" size="sm" className="w-fit mt-4">
-                  Get Started
-                </Button>
+                <div className="flex flex-col gap-2 mt-4">
+                  <Link to="/shop" onClick={() => setIsMenuOpen(false)}>
+                    <Button variant="outline" size="sm" className="w-fit flex items-center gap-2">
+                      <ShoppingBag size={16} />
+                      Shop
+                    </Button>
+                  </Link>
+                  <Button variant="default" size="sm" className="w-fit">
+                    Get Started
+                  </Button>
+                </div>
               </nav>
             </div>
           )}

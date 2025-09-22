@@ -16,11 +16,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 30% 8%;
 
-    /* Medical Primary - Professional Teal */
-    --primary: 180 85% 35%;
+    /* Medical Primary - Logo Cyan */
+    --primary: 180 100% 40%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 180 70% 85%;
-    --primary-dark: 180 90% 25%;
+    --primary-light: 180 80% 85%;
+    --primary-dark: 180 100% 25%;
 
     /* Medical Secondary - Vibrant Orange */
     --secondary: 25 95% 55%;
@@ -88,10 +88,10 @@
     --popover: 210 45% 8%;
     --popover-foreground: 210 15% 90%;
 
-    --primary: 180 85% 55%;
+    --primary: 180 100% 50%;
     --primary-foreground: 210 50% 6%;
-    --primary-light: 180 70% 85%;
-    --primary-dark: 180 90% 35%;
+    --primary-light: 180 80% 85%;
+    --primary-dark: 180 100% 35%;
 
     --secondary: 25 95% 65%;
     --secondary-foreground: 210 50% 6%;
