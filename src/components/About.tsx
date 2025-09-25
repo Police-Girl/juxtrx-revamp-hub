@@ -1,5 +1,5 @@
 import { CheckCircle, Target, Eye, Heart } from 'lucide-react';
-import consultationImage from '@/assets/consultation.jpg';
+import consultationImage from '@/Images/jars-1853439.jpg';
 
 const About = () => {
   const values = [
@@ -33,11 +33,10 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            About <span className="text-primary">JuxT Remedica</span>
+            About <span className="text-primary">Juxt Rx</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Just Mercurial Research & Creatives (JMRC-Intel) is your trusted partner in 
-            pharmaceutical excellence, providing comprehensive apothecary solutions across Kenya.
+            Juxt Rx is a specialized provider of implementation solutions for healthcare business processes. We focus on pharmacy operations and consultancy, PBM, LTR & brand management, and regulatory support & product registration.
           </p>
         </div>
 
@@ -60,14 +59,10 @@ const About = () => {
                 Transforming Healthcare Through Innovation
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                With over a decade of experience in the pharmaceutical industry, JuxT Remedica 
-                has established itself as a leader in providing comprehensive healthcare solutions. 
-                Our team of experienced professionals is dedicated to supporting pharmaceutical 
-                companies, healthcare providers, and patients across Kenya.
+                With many years of experience in the healthcare industry, Juxt Rx helps organizations optimize operations, reduce costs, and improve patient outcomes. Our team supports pharmaceutical companies, healthcare providers, and partners across Kenya.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                From regulatory compliance to pharmacy operations management, we offer end-to-end 
-                solutions that ensure quality, safety, and efficacy in pharmaceutical services.
+                From pharmacy operations and PBM to LTR and regulatory support, we deliver end-to-end solutions that ensure quality, compliance, and sustainable growth.
               </p>
             </div>
 

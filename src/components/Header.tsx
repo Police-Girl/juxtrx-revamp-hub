@@ -27,12 +27,12 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} />
-              <span>Sun - Fri: 8:00am - 10:00pm</span>
+              <span>Sun - Fri: 8.00am - 10.00pm</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Phone size={16} />
-            <span>+254 (0) 123 456 789</span>
+            <a href="tel:0777795985" className="underline-offset-2 hover:underline">0777795985</a>
           </div>
         </div>
       </div>
@@ -45,12 +45,12 @@ const Header = () => {
             <div className="flex items-center space-x-4">
               <img 
                 src={jmrcLogo} 
-                alt="JMRC Intel - Just Mercurial Research & Creatives" 
-                className="h-12 w-12 rounded-full object-contain shadow-medium bg-white/10 p-1"
+                alt="Juxt Rx Logo"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-md opacity-80"
               />
               <div className="hidden sm:block">
-                <h1 className="text-2xl font-bold text-primary">JuxT Remedica</h1>
-                <p className="text-sm text-muted-foreground">Apothecary Solutions</p>
+                <h1 className="text-2xl font-bold text-primary">Juxt Rx</h1>
+                <p className="text-sm text-muted-foreground">Pharmacy Operations, PBM & Regulatory</p>
               </div>
             </div>
 

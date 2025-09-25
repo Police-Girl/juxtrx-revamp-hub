@@ -10,9 +10,9 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import laboratoryImage from '@/assets/laboratory-minimal.jpg';
-import pharmacyOperationsImage from '@/assets/pharmacy-minimal.jpg';
-import consultationImage from '@/assets/consultation-minimal.jpg';
+import laboratoryImage from '@/Images/medicine-1582472.jpg';
+import pharmacyOperationsImage from '@/Images/tablets-5620566.jpg';
+import consultationImage from '@/Images/medications-257336.jpg';
 
 const Services = () => {
   const servicesData = [
@@ -32,7 +32,7 @@ const Services = () => {
     {
       icon: <FileText className="text-secondary" size={48} />,
       title: "Regulatory Support & Product Registration",
-      description: "Navigate the complex regulatory landscape with our expert guidance, ensuring compliance and smooth product registration processes.",
+      description: "Navigate regulatory pathways efficiently with expert guidance for approvals, certifications, and product registrations in Kenya.",
       features: [
         "Regulatory compliance consulting",
         "Product registration assistance", 
@@ -44,8 +44,8 @@ const Services = () => {
     },
     {
       icon: <Stethoscope className="text-tertiary" size={48} />,
-      title: "Pharmacy Operations & Consultancy",
-      description: "Comprehensive pharmacy management services including operations optimization, PBM services, and strategic consultancy for healthcare organizations.",
+      title: "Pharmacy Operations, PBM & Consultancy",
+      description: "Optimize pharmacy workflows, implement PBM, and enhance patient outcomes through scalable, tech-enabled operations.",
       features: [
         "Pharmacy operations management",
         "Pharmacy Benefit Management (PBM)",
@@ -170,7 +170,7 @@ const Services = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center">
+        <div className="mt-20 text-center relative z-10">
           <div className="bg-gradient-hero p-12 rounded-3xl text-white">
             <h3 className="text-3xl font-bold mb-4">
               Ready to Transform Your Healthcare Operations?
@@ -179,20 +179,15 @@ const Services = () => {
               Let our team of experts help you navigate the pharmaceutical landscape 
               and achieve your business objectives.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/90 shadow-strong"
-              >
-                Schedule Consultation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 glass-effect"
-              >
-                Download Brochure
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto">
+              <a href="/#contact" className="inline-flex">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-primary hover:bg-white/90 shadow-strong"
+                >
+                  Schedule Consultation
+                </Button>
+              </a>
             </div>
           </div>
         </div>

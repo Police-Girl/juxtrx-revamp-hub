@@ -29,9 +29,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: '#', label: 'Facebook' },
+    { icon: <Facebook size={20} />, href: 'https://m.facebook.com/61551045025972/about/', label: 'Facebook' },
     { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
-    { icon: <Instagram size={20} />, href: '#', label: 'Instagram' },
+    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/nourishandbloom1/?hl=en', label: 'Instagram' },
     { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
   ];
 
@@ -49,17 +49,16 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <img 
                 src={jmrcLogo} 
-                alt="JMRC Intel Logo" 
-                className="h-12 w-12 rounded-full object-cover"
+                alt="Juxt Rx Logo" 
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-md opacity-80"
               />
               <div>
-                <h3 className="text-xl font-bold">JuxT Remedica</h3>
-                <p className="text-primary-foreground/80 text-sm">Apothecary Solutions</p>
+                <h3 className="text-xl font-bold">Juxt Rx</h3>
+                <p className="text-primary-foreground/80 text-sm">Pharmacy Operations, PBM & Regulatory</p>
               </div>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
-              Just Mercurial Research & Creatives (JMRC-Intel) - Your trusted partner 
-              in pharmaceutical excellence across Kenya and East Africa.
+              Juxt Rx is a specialized provider of implementation solutions for healthcare business processes, focused on pharmacy operations, PBM, LTR & brand management, and regulatory support.
             </p>
             
             {/* Social Links */}
@@ -68,8 +67,14 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="bg-primary-foreground/10 hover:bg-primary-foreground/20 p-2 rounded-lg transition-colors duration-200"
+                  className="p-2 rounded-lg transition-colors duration-200"
                   aria-label={social.label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))',
+                    color: 'white'
+                  }}
                 >
                   {social.icon}
                 </a>
@@ -122,12 +127,12 @@ const Footer = () => {
               
               <div className="flex items-center gap-3">
                 <Phone className="text-secondary-light flex-shrink-0" size={20} />
-                <span className="text-primary-foreground/80">+254 (0) 123 456 789</span>
+                <a href="tel:0777795985" className="text-primary-foreground/80 underline-offset-2 hover:underline">0777795985</a>
               </div>
               
               <div className="flex items-center gap-3">
                 <Mail className="text-secondary-light flex-shrink-0" size={20} />
-                <span className="text-primary-foreground/80">info@juxtrx.ke</span>
+                <a href="mailto:info@juxtrx.ke" className="text-primary-foreground/80 underline-offset-2 hover:underline">info@juxtrx.ke</a>
               </div>
             </div>
 
@@ -158,7 +163,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-primary-foreground/80 text-sm text-center md:text-left">
-              <p>&copy; 2024 JuxT Remedica - JMRC Intel. All rights reserved.</p>
+              <p>&copy; 2025 JuxT Remedica - JMRC Intel. All rights reserved.</p>
               <p className="mt-1">Licensed by Pharmacy & Poisons Board of Kenya</p>
             </div>
             

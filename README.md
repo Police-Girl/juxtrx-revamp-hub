@@ -1,3 +1,48 @@
+# Juxt Rx Website - Local Setup
+
+## Backend (PHP + MySQL via phpMyAdmin)
+
+1) Create database and tables
+- Open phpMyAdmin → Import → select `public/api/setup.sql`.
+- This creates DB `juxtrx_portal` and table `contacts`.
+  - Also creates `communications` for inbound SMS/calls/WhatsApp/email logs.
+
+2) Configure backend
+- Edit `public/api/config.php` if needed:
+  - `DB_HOST` (default 127.0.0.1)
+  - `DB_NAME` (default juxtrx_portal)
+  - `DB_USER` (default root)
+  - `DB_PASS` (set your password if any)
+  - `SITE_TO_EMAIL` (recipient of notifications)
+
+3) Serve the site with PHP
+```
+php -S localhost:8088 -t public
+```
+The contact form posts to `/api/contact.php` and will:
+- Insert into `juxtrx_portal.contacts`
+- Send an email to `SITE_TO_EMAIL`
+
+### SMS/WhatsApp/Calls (Optional Logging)
+- Quick actions:
+  - SMS: `sms:0777795985`
+  - WhatsApp: `https://wa.me/254777795985`
+- Provider webhook (optional): point your provider webhook URL to `/api/webhook.php` to log inbound messages/calls into `communications`.
+
+## Frontend
+- Vite dev: `npm run dev -- --port 5177`
+- Build: `npm run build` then serve `public/` with PHP for backend endpoints.
+- Netlify: set build to `npm run build` and publish dir to `dist`. Add env var `VITE_API_BASE` to the origin of your PHP API, e.g. `https://api.yourdomain.com`.
+
+## Environment
+- PHP 8+, extensions: pdo_mysql, mbstring
+- MySQL/MariaDB accessible via phpMyAdmin
+
+## Links wired
+- Map open: Google Maps
+- Instagram, Facebook: open in new tabs
+- Phone/email: clickable via `tel:` and `mailto:`
+
 # Welcome to your Lovable project
 
 ## Project info

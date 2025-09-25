@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { 
   Phone, 
   Mail, 
@@ -10,20 +11,23 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone className="text-primary" size={24} />,
       title: "Phone",
-      details: ["+254 (0) 123 456 789", "+254 (0) 987 654 321"],
-      action: "Call Now"
+      details: ["0777795985"],
+      action: "Call Now",
+      actionLink: "tel:0777795985"
     },
     {
       icon: <Mail className="text-secondary" size={24} />,
       title: "Email",
-      details: ["info@juxtrx.ke", "support@juxtrx.ke"],
-      action: "Send Email"
+      details: ["info@juxtrx.ke"],
+      action: "Send Email",
+      actionLink: "mailto:info@juxtrx.ke"
     },
     {
       icon: <MapPin className="text-tertiary" size={24} />,
@@ -47,6 +51,33 @@ const Contact = () => {
     "Market Research",
     "Quality Assurance"
   ];
+
+  const { toast } = useToast();
+  const [submitting, setSubmitting] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const base = (import.meta as any).env?.VITE_API_BASE || '';
+      const api = base ? `${String(base).replace(/\/$/, '')}/api/contact.php` : '/api/contact.php';
+      const res = await fetch(api, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) throw new Error(data.error || 'Failed');
+      toast({ title: 'Message sent', description: 'We will get back to you shortly.' });
+      form.reset();
+    } catch (err: any) {
+      toast({ title: 'Failed to send', description: 'Please try again later.', variant: 'destructive' });
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <section id="contact" className="py-20 bg-gradient-subtle">
@@ -74,27 +105,19 @@ const Contact = () => {
               </p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-card-foreground mb-2">
                     First Name
                   </label>
-                  <Input 
-                    id="firstName"
-                    placeholder="John"
-                    className="w-full"
-                  />
+                  <Input id="firstName" name="firstName" placeholder="John" className="w-full" required />
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-sm font-medium text-card-foreground mb-2">
                     Last Name
                   </label>
-                  <Input 
-                    id="lastName"
-                    placeholder="Doe"
-                    className="w-full"
-                  />
+                  <Input id="lastName" name="lastName" placeholder="Doe" className="w-full" required />
                 </div>
               </div>
 
@@ -102,31 +125,21 @@ const Contact = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-card-foreground mb-2">
                   Email Address
                 </label>
-                <Input 
-                  id="email"
-                  type="email"
-                  placeholder="john.doe@example.com"
-                  className="w-full"
-                />
+                <Input id="email" name="email" type="email" placeholder="john.doe@example.com" className="w-full" required />
               </div>
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-card-foreground mb-2">
                   Phone Number
                 </label>
-                <Input 
-                  id="phone"
-                  type="tel"
-                  placeholder="+254 XXX XXX XXX"
-                  className="w-full"
-                />
+                <Input id="phone" name="phone" type="tel" placeholder="+254 XXX XXX XXX" className="w-full" />
               </div>
 
               <div>
                 <label htmlFor="service" className="block text-sm font-medium text-card-foreground mb-2">
                   Service of Interest
                 </label>
-                <select className="w-full px-3 py-2 border border-input bg-background rounded-md text-foreground">
+                <select name="service" className="w-full px-3 py-2 border border-input bg-background rounded-md text-foreground">
                   <option value="">Select a service</option>
                   {services.map((service, index) => (
                     <option key={index} value={service}>{service}</option>
@@ -138,16 +151,12 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-card-foreground mb-2">
                   Message
                 </label>
-                <Textarea 
-                  id="message"
-                  placeholder="Tell us about your project or requirements..."
-                  className="w-full h-32"
-                />
+                <Textarea id="message" name="message" placeholder="Tell us about your project or requirements..." className="w-full h-32" required />
               </div>
 
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" type="submit" disabled={submitting}>
                 <Send className="mr-2" size={20} />
-                Send Message
+                {submitting ? 'Sending…' : 'Send Message'}
               </Button>
             </form>
           </div>
@@ -174,15 +183,26 @@ const Contact = () => {
                           {info.title}
                         </h4>
                         <div className="space-y-1">
-                          {info.details.map((detail, detailIndex) => (
-                            <p key={detailIndex} className="text-muted-foreground">
-                              {detail}
-                            </p>
-                          ))}
+                          {info.details.map((detail, detailIndex) => {
+                            const isEmail = detail.includes('@');
+                            const isPhone = info.title === 'Phone';
+                            const href = isEmail ? `mailto:${detail}` : isPhone ? `tel:${detail.replace(/\s+/g,'')}` : undefined;
+                            return href ? (
+                              <a key={detailIndex} href={href} className="text-primary hover:underline">
+                                {detail}
+                              </a>
+                            ) : (
+                              <p key={detailIndex} className="text-muted-foreground">{detail}</p>
+                            );
+                          })}
                         </div>
-                        <Button variant="outline" size="sm" className="mt-3">
-                          {info.action}
-                        </Button>
+                        {info.actionLink ? (
+                          <a href={info.actionLink}>
+                            <Button variant="outline" size="sm" className="mt-3">
+                              {info.action}
+                            </Button>
+                          </a>
+                        ) : null}
                       </div>
                     </div>
                   </div>
@@ -190,7 +210,7 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Quick Email */}
             <div className="bg-gradient-hero p-8 rounded-2xl text-white">
               <h4 className="text-xl font-bold mb-4">
                 Need Immediate Assistance?
@@ -200,22 +220,13 @@ const Contact = () => {
                 and emergency pharmaceutical consultations.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
-                  className="bg-white text-primary hover:bg-white/90"
-                  size="sm"
-                >
-                  <MessageCircle className="mr-2" size={16} />
-                  Live Chat
-                </Button>
-                <Button 
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 glass-effect"
-                  size="sm"
-                >
-                  <Globe className="mr-2" size={16} />
-                  Visit Website
-                </Button>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a href="mailto:info@juxtrx.ke" className="inline-flex">
+                  <Button className="bg-white text-primary hover:bg-white/90" size="sm">
+                    <MessageCircle className="mr-2" size={16} />
+                    Email Us
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

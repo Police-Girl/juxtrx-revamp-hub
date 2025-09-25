@@ -1,5 +1,6 @@
 import { ArrowRight, Shield, Users, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import heroCapsules from '@/Images/capsules-1079838.jpg';
 import heroMedical from '@/assets/hero-medical.jpg';
 
 const Hero = () => {
@@ -8,7 +9,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroMedical})` }}
+        style={{ backgroundImage: `url(${heroCapsules})` }}
       >
         <div className="absolute inset-0 medical-gradient opacity-90"></div>
       </div>
@@ -20,34 +21,23 @@ const Hero = () => {
           <div className="text-white animate-fade-in-up">
             <div className="mb-6">
               <span className="inline-block bg-white/20 glass-effect text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                Welcome to JuxT Remedica
+                Welcome to Juxt Rx
               </span>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                Your Trusted Partner in
-                <span className="block text-secondary-light">
-                  Pharmaceutical Excellence
-                </span>
+                Pharmacy Operations, PBM,
+                <span className="block text-secondary-light">LTR & Regulatory Support</span>
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                Providing comprehensive pharmaceutical services from regulatory support to 
-                pharmacy operations, helping healthcare organizations thrive in today's complex market.
+                We specialize in pharmacy operations and consultancy, Pharmacy Benefit Management (PBM), Local Trade Representative (LTR) & brand management, and regulatory support & product registration.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-white/90 shadow-strong text-lg px-8 py-4"
-              >
-                Discover Our Services
-                <ArrowRight className="ml-2" size={20} />
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong text-lg px-8 py-4">
+                <a href="#services" className="flex items-center">Discover Our Services<ArrowRight className="ml-2" size={20} /></a>
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-white/30 text-white hover:bg-white/10 glass-effect text-lg px-8 py-4"
-              >
-                Contact Us Today
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-strong text-lg px-8 py-4">
+                <a href="#contact">Contact Us Today</a>
               </Button>
             </div>
 
