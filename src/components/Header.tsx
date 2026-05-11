@@ -1,34 +1,38 @@
 import { useState } from 'react';
-import { Menu, X, Phone, Mail, Clock, ShoppingBag } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-const jmrcLogo = '/lovable-uploads/2e2a9a4d-0092-4ccf-b41a-e2a5197782fd.png';
+import { useNavigate, useLocation } from 'react-router-dom';
+import jmrcLogo from '@/Images/new_logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Contact', href: '/#contact' },
-    { name: 'Shop', href: '/shop' },
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Services', id: 'services' },
   ];
+
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Mail size={16} />
-              <span>info@juxtrx.ke</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock size={16} />
-              <span>Sun - Fri: 8.00am - 10.00pm</span>
-            </div>
+          <div className="flex items-center gap-2">
+            <Mail size={16} />
+            <span>info@juxtrx.ke</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone size={16} />
@@ -42,9 +46,9 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-4">
-              <img 
-                src={jmrcLogo} 
+            <div className="flex items-center space-x-4 cursor-pointer" onClick={() => scrollToSection('home')}>
+              <img
+                src={jmrcLogo}
                 alt="Juxt Rx Logo"
                 className="h-10 sm:h-12 w-auto object-contain drop-shadow-md opacity-80"
               />
@@ -57,23 +61,17 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  to={item.href}
+                  onClick={() => scrollToSection(item.id)}
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
               <div className="flex items-center gap-3 ml-4">
-                <Link to="/shop">
-                  <Button variant="outline" size="sm" className="flex items-center gap-2">
-                    <ShoppingBag size={16} />
-                    Shop
-                  </Button>
-                </Link>
-                <Button variant="default" size="sm">
-                  Get Started
+                <Button variant="default" size="sm" onClick={() => scrollToSection('contact')}>
+                  Contact Us
                 </Button>
               </div>
             </nav>
@@ -93,24 +91,17 @@ const Header = () => {
             <div className="lg:hidden py-4 border-t border-border animate-fade-in-up">
               <nav className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <Link
+                  <button
                     key={item.name}
-                    to={item.href}
-                    className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2 text-left"
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 ))}
                 <div className="flex flex-col gap-2 mt-4">
-                  <Link to="/shop" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="outline" size="sm" className="w-fit flex items-center gap-2">
-                      <ShoppingBag size={16} />
-                      Shop
-                    </Button>
-                  </Link>
-                  <Button variant="default" size="sm" className="w-fit">
-                    Get Started
+                  <Button variant="default" size="sm" className="w-fit" onClick={() => scrollToSection('contact')}>
+                    Contact Us
                   </Button>
                 </div>
               </nav>
