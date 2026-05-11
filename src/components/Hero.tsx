@@ -36,9 +36,6 @@ const Hero = () => {
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong text-lg px-8 py-4">
                 <a href="#services" className="flex items-center">Discover Our Services<ArrowRight className="ml-2" size={20} /></a>
               </Button>
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 shadow-strong text-lg px-8 py-4">
-                <a href="#contact">Contact Us Today</a>
-              </Button>
             </div>
 
             {/* Stats */}
@@ -52,8 +49,8 @@ const Hero = () => {
                 <div className="text-white/80 text-sm">Clients Served</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                <div className="text-white/80 text-sm">Support</div>
+                <div className="text-3xl font-bold text-white mb-2">100%</div>
+                <div className="text-white/80 text-sm">Compliance Rate</div>
               </div>
             </div>
           </div>

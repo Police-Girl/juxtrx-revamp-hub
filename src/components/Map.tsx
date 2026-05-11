@@ -21,15 +21,15 @@ const Map = () => {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src={`https://www.google.com/maps?q=Juxt%20Rx%20Nairobi%20Kenya&output=embed`}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8439249921166!2d36.80916067583504!3d-1.2663026356064044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f171baf0a6479%3A0xdefc2a119d738138!2sNourish%20%26%20Bloom%20Pharmacy!5e0!3m2!1sen!2ske!4v1778511761180!5m2!1sen!2ske"
           />
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent to-background/10 rounded-lg" />
         </div>
 
-        <div className="mt-8 grid md:grid-cols-3 gap-6">
+        <div className="mt-8 grid md:grid-cols-4 gap-6">
           <div className="bg-card p-6 rounded-xl shadow-soft border border-border text-center">
             <h3 className="font-bold text-card-foreground mb-2">Address</h3>
-            <p className="text-muted-foreground">Nairobi, Kenya</p>
+            <p className="text-muted-foreground">Ojijo Rd, Nairobi</p>
           </div>
           <div className="bg-card p-6 rounded-xl shadow-soft border border-border text-center">
             <h3 className="font-bold text-card-foreground mb-2">Phone</h3>
@@ -38,6 +38,11 @@ const Map = () => {
           <div className="bg-card p-6 rounded-xl shadow-soft border border-border text-center">
             <h3 className="font-bold text-card-foreground mb-2">Email</h3>
             <p className="text-muted-foreground">info@juxtrx.ke</p>
+          </div>
+          <div className="bg-card p-6 rounded-xl shadow-soft border border-border text-center">
+            <h3 className="font-bold text-card-foreground mb-2">Business Hours</h3>
+            <p className="text-muted-foreground text-sm">Mon-Fri: 8:00am - 6:00pm</p>
+            <p className="text-muted-foreground text-sm">Sat: 9:00am - 2:00pm</p>
           </div>
         </div>
         <div className="mt-6 text-center">

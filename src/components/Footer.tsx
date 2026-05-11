@@ -3,21 +3,33 @@ import {
   Mail, 
   MapPin,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
   ArrowUp
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 const jmrcLogo = '/lovable-uploads/2e2a9a4d-0092-4ccf-b41a-e2a5197782fd.png';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', id: 'home' },
+    { name: 'About Us', id: 'about' },
+    { name: 'Services', id: 'services' },
+    { name: 'Contact', id: 'contact' },
   ];
+
+  const scrollToSection = (id: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const services = [
     'Regulatory Support',
@@ -30,7 +42,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <Facebook size={20} />, href: 'https://m.facebook.com/61551045025972/about/', label: 'Facebook' },
-    { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
+    { icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>, href: '#', label: 'X' },
     { icon: <Instagram size={20} />, href: 'https://www.instagram.com/nourishandbloom1/?hl=en', label: 'Instagram' },
     { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
   ];
@@ -88,12 +100,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => scrollToSection(link.id)}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -134,24 +146,14 @@ const Footer = () => {
                 <Mail className="text-secondary-light flex-shrink-0" size={20} />
                 <a href="mailto:info@juxtrx.ke" className="text-primary-foreground/80 underline-offset-2 hover:underline">info@juxtrx.ke</a>
               </div>
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="mt-6">
-              <h5 className="font-medium mb-3">Stay Updated</h5>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-3 py-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-md text-primary-foreground placeholder-primary-foreground/60"
-                />
-                <Button 
-                  variant="secondary" 
-                  size="sm"
-                  className="px-4"
-                >
-                  Subscribe
-                </Button>
+              
+              <div className="flex items-start gap-3">
+                <Phone className="text-secondary-light flex-shrink-0 mt-1" size={20} />
+                <div className="text-primary-foreground/80">
+                  <p className="font-medium">Business Hours</p>
+                  <p>Mon-Fri: 8:00am - 6:00pm</p>
+                  <p>Sat: 9:00am - 2:00pm</p>
+                </div>
               </div>
             </div>
           </div>

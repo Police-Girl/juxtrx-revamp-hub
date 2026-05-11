@@ -93,9 +93,9 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-1 gap-16">
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl shadow-strong border border-border">
+          <div className="bg-card p-8 rounded-2xl shadow-strong border border-border max-w-3xl mx-auto w-full">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-card-foreground mb-4">
                 Send Us a Message
@@ -159,76 +159,6 @@ const Contact = () => {
                 {submitting ? 'Sending…' : 'Send Message'}
               </Button>
             </form>
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-8">
-                Contact Information
-              </h3>
-              
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div 
-                    key={index}
-                    className="bg-card p-6 rounded-xl shadow-soft border border-border hover:shadow-medium transition-all duration-300"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        {info.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-card-foreground mb-2">
-                          {info.title}
-                        </h4>
-                        <div className="space-y-1">
-                          {info.details.map((detail, detailIndex) => {
-                            const isEmail = detail.includes('@');
-                            const isPhone = info.title === 'Phone';
-                            const href = isEmail ? `mailto:${detail}` : isPhone ? `tel:${detail.replace(/\s+/g,'')}` : undefined;
-                            return href ? (
-                              <a key={detailIndex} href={href} className="text-primary hover:underline">
-                                {detail}
-                              </a>
-                            ) : (
-                              <p key={detailIndex} className="text-muted-foreground">{detail}</p>
-                            );
-                          })}
-                        </div>
-                        {info.actionLink ? (
-                          <a href={info.actionLink}>
-                            <Button variant="outline" size="sm" className="mt-3">
-                              {info.action}
-                            </Button>
-                          </a>
-                        ) : null}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Email */}
-            <div className="bg-gradient-hero p-8 rounded-2xl text-white">
-              <h4 className="text-xl font-bold mb-4">
-                Need Immediate Assistance?
-              </h4>
-              <p className="text-white/90 mb-6">
-                Our support team is available to help you with urgent inquiries 
-                and emergency pharmaceutical consultations.
-              </p>
-              
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <a href="mailto:info@juxtrx.ke" className="inline-flex">
-                  <Button className="bg-white text-primary hover:bg-white/90" size="sm">
-                    <MessageCircle className="mr-2" size={16} />
-                    Email Us
-                  </Button>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

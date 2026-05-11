@@ -1,11 +1,23 @@
 import { Stethoscope, CheckCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import consultationImage from '@/Images/flu-1006045.jpg';
+import { useEffect } from 'react';
 
 const ServicePharmacy = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const scrollToContact = () => {
+    navigate('/');
+    setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -104,13 +116,6 @@ const ServicePharmacy = () => {
               </div>
             </div>
 
-            {/* Contact CTA */}
-            <div className="mt-16 text-center">
-              <Link to="/#contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong">Talk to Us</Button>
-              </Link>
-            </div>
-
             {/* CTA Section */}
             <div className="mt-16 text-center">
               <div className="bg-gradient-hero p-12 rounded-3xl text-white">
@@ -121,11 +126,9 @@ const ServicePharmacy = () => {
                   Our comprehensive consultancy services will optimize your pharmacy operations and enhance patient care.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="/#contact" className="inline-flex">
-                    <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong">
-                      Schedule Consultation
-                    </Button>
-                  </a>
+                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong" onClick={scrollToContact}>
+                    Schedule Consultation
+                  </Button>
                 </div>
               </div>
             </div>

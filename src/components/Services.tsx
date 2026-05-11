@@ -168,29 +168,6 @@ const Services = () => {
             ))}
           </div>
         </div>
-
-        {/* Call to Action */}
-        <div className="mt-20 text-center relative z-10">
-          <div className="bg-gradient-hero p-12 rounded-3xl text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Transform Your Healthcare Operations?
-            </h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Let our team of experts help you navigate the pharmaceutical landscape 
-              and achieve your business objectives.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto">
-              <a href="/#contact" className="inline-flex">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-primary hover:bg-white/90 shadow-strong"
-                >
-                  Schedule Consultation
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
