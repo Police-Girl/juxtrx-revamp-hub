@@ -2,137 +2,131 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Medical-themed design system with professional healthcare colors and gradients */
+/* Vibrant professional design with orange primary, green healthcare, purple premium */
 
 @layer base {
   :root {
-    /* Emerald Theme */
-    --background: 170 20% 98%;
-    --foreground: 180 25% 10%;
+    /* Clean White/Light Background */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 30% 8%;
+    --card-foreground: 220 15% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 30% 8%;
+    --popover-foreground: 220 15% 12%;
 
-    /* Primary - Emerald */
-    --primary: 173 72% 26%;
+    /* Primary - Orange #F57C00 */
+    --primary: 28 100% 48%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 165 55% 88%;
-    --primary-dark: 173 80% 20%;
+    --primary-light: 28 100% 90%;
+    --primary-dark: 28 100% 38%;
 
-    /* Secondary - Soft Mint */
-    --secondary: 165 42% 70%;
-    --secondary-foreground: 180 25% 12%;
-    --secondary-light: 165 45% 88%;
+    /* Secondary - Green #43A047 */
+    --secondary: 123 43% 44%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 123 43% 88%;
 
-    /* Tertiary - Deep Teal */
-    --tertiary: 195 60% 36%;
+    /* Tertiary/Accent - Purple #7E57C2 */
+    --tertiary: 261 47% 55%;
     --tertiary-foreground: 0 0% 100%;
-    --tertiary-light: 195 55% 88%;
+    --tertiary-light: 261 47% 88%;
 
-    /* Neutral Medical Grays */
-    --muted: 170 20% 96%;
-    --muted-foreground: 170 12% 38%;
+    /* Neutral Grays */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 165 45% 95%;
-    --accent-foreground: 173 72% 26%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 28 100% 48%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 88%;
-    --input: 210 15% 88%;
-    --ring: 173 72% 26%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 28 100% 48%;
 
-    /* Medical Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 50%, hsl(var(--secondary)) 100%);
+    /* Vibrant Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(28 100% 48%), hsl(261 47% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(28 100% 48%) 0%, hsl(28 100% 38%) 50%, hsl(261 47% 55%) 100%);
+    --gradient-healthcare: linear-gradient(135deg, hsl(123 43% 44%), hsl(28 100% 48%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.4));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 20% 95%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 97%));
 
-    /* Medical Shadows */
-    --shadow-soft: 0 2px 20px -5px hsl(var(--primary) / 0.1);
-    --shadow-medium: 0 8px 30px -8px hsl(var(--primary) / 0.15);
-    --shadow-strong: 0 20px 40px -15px hsl(var(--primary) / 0.2);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    /* Shadows */
+    --shadow-soft: 0 2px 20px -5px hsl(28 100% 48% / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(28 100% 48% / 0.15);
+    --shadow-strong: 0 20px 40px -15px hsl(28 100% 48% / 0.2);
+    --shadow-glow: 0 0 30px hsl(28 100% 48% / 0.3);
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-foreground: 220 15% 12%;
+    --sidebar-primary: 28 100% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 28 100% 48%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 28 100% 48%;
   }
 
   .dark {
-    /* Dark Emerald Theme */
-    --background: 190 50% 6%;
-    --foreground: 200 12% 92%;
+    /* Dark Theme */
+    --background: 220 20% 8%;
+    --foreground: 220 12% 92%;
 
-    --card: 200 35% 9%;
-    --card-foreground: 200 12% 92%;
+    --card: 220 20% 10%;
+    --card-foreground: 220 12% 92%;
 
-    --popover: 200 35% 9%;
-    --popover-foreground: 200 12% 92%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 12% 92%;
 
-    --primary: 173 72% 45%;
-    --primary-foreground: 190 50% 6%;
-    --primary-light: 165 55% 80%;
-    --primary-dark: 173 80% 32%;
+    --primary: 28 100% 55%;
+    --primary-foreground: 220 20% 8%;
+    --primary-light: 28 100% 80%;
+    --primary-dark: 28 100% 45%;
 
-    --secondary: 165 42% 60%;
-    --secondary-foreground: 190 50% 6%;
-    --secondary-light: 165 45% 80%;
+    --secondary: 123 43% 55%;
+    --secondary-foreground: 220 20% 8%;
+    --secondary-light: 123 43% 80%;
 
-    --tertiary: 195 60% 40%;
-    --tertiary-foreground: 190 50% 6%;
-    --tertiary-light: 195 55% 80%;
+    --tertiary: 261 47% 65%;
+    --tertiary-foreground: 220 20% 8%;
+    --tertiary-light: 261 47% 80%;
 
-    --muted: 200 25% 12%;
-    --muted-foreground: 195 12% 70%;
+    --muted: 220 20% 14%;
+    --muted-foreground: 220 12% 70%;
 
-    --accent: 195 25% 12%;
-    --accent-foreground: 173 72% 55%;
+    --accent: 220 20% 14%;
+    --accent-foreground: 28 100% 55%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 200 12% 92%;
+    --destructive-foreground: 220 12% 92%;
 
-    --border: 195 25% 14%;
-    --input: 195 25% 14%;
-    --ring: 173 72% 45%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 28 100% 55%;
 
-    /* Dark Medical Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 50%, hsl(var(--secondary)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(210 45% 8% / 0.8), hsl(210 45% 8% / 0.4));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 50% 4%));
+    --gradient-primary: linear-gradient(135deg, hsl(28 100% 55%), hsl(261 47% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(28 100% 55%) 0%, hsl(28 100% 45%) 50%, hsl(261 47% 65%) 100%);
+    --gradient-healthcare: linear-gradient(135deg, hsl(123 43% 55%), hsl(28 100% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 10% / 0.8), hsl(220 20% 10% / 0.4));
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 8%), hsl(220 20% 6%));
 
-    /* Dark Medical Shadows */
     --shadow-soft: 0 2px 20px -5px hsl(0 0% 0% / 0.3);
     --shadow-medium: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
     --shadow-strong: 0 20px 40px -15px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.4);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --shadow-glow: 0 0 30px hsl(28 100% 55% / 0.4);
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 12% 92%;
+    --sidebar-primary: 28 100% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 220 20% 14%;
+    --sidebar-accent-foreground: 220 12% 92%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 28 100% 55%;
   }
 }
 
@@ -145,7 +139,7 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Custom medical animations */
+  /* Custom animations */
   @keyframes pulse-soft {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.8; transform: scale(1.05); }
@@ -161,7 +155,6 @@
     100% { opacity: 1; transform: translateX(0); }
   }
 
-  /* Medical themed utilities */
   .animate-pulse-soft {
     animation: pulse-soft 2s ease-in-out infinite;
   }
