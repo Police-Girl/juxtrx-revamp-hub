@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import laboratoryImage from '@/Images/health-846863.jpg';
 import { useEffect } from 'react';
 
 const ServiceLTR = () => {
@@ -19,118 +18,88 @@ const ServiceLTR = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-hero text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <Link to="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
-                  <ArrowLeft size={20} />
-                  Back to Home
-                </Link>
-                <div className="flex items-center gap-4 mb-6">
-                  <Shield className="text-white" size={48} />
-                  <h1 className="text-4xl md:text-5xl font-bold">
-                    Local Trade Representative & Brand Management
-                  </h1>
-                </div>
-                <p className="text-xl text-white/90 leading-relaxed">
-                  Comprehensive market representation and brand management services for pharmaceutical companies looking to expand their reach and visibility in Kenya and East Africa.
-                </p>
-              </div>
-              <div className="relative">
-                <img 
-                  src={laboratoryImage} 
-                  alt="Professional laboratory setting"
-                  className="rounded-2xl shadow-strong w-full h-96 object-cover"
-                />
-              </div>
-            </div>
+        <section className="page-hero">
+          <div className="section-shell max-w-3xl">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+            >
+              <ArrowLeft size={20} />
+              Back to Home
+            </Link>
+            <Shield className="text-secondary mb-6" size={48} strokeWidth={1.5} />
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">
+              Local Trade Representative & Brand Management
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Market representation and brand management for companies expanding their reach in Kenya
+              and East Africa.
+            </p>
           </div>
         </section>
 
-        {/* Service Details */}
-        <section className="py-20 bg-background">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12">
-              
-              {/* Features */}
-              <div className="bg-card p-8 rounded-2xl shadow-soft border border-border">
-                <h3 className="text-2xl font-bold text-card-foreground mb-6">Key Features</h3>
-                <div className="space-y-4">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="section-card">
+                <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+                <ul className="space-y-3">
                   {[
-                    "Market entry strategy and planning",
-                    "Brand positioning and marketing",
-                    "Local partnership development",
-                    "Market intelligence and analysis"
-                  ].map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="text-primary flex-shrink-0" size={20} />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </div>
+                    'Market entry strategy and planning',
+                    'Brand positioning and marketing',
+                    'Local partnership development',
+                    'Market intelligence and analysis',
+                  ].map((f) => (
+                    <li key={f} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="text-secondary shrink-0 mt-0.5" size={18} />
+                      {f}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
-
-              {/* Process */}
-              <div className="bg-card p-8 rounded-2xl shadow-soft border border-border">
-                <h3 className="text-2xl font-bold text-card-foreground mb-6">Our Process</h3>
-                <div className="space-y-4">
+              <div className="section-card">
+                <h3 className="text-xl font-semibold mb-4">Our Process</h3>
+                <ol className="space-y-3">
                   {[
-                    "Initial market assessment and competitive analysis",
-                    "Develop comprehensive market entry strategy",
-                    "Establish local partnerships and distribution networks",
-                    "Implement brand positioning and marketing campaigns",
-                    "Monitor performance and optimize strategies"
-                  ].map((step, index) => (
-                    <div key={index} className="flex gap-3">
-                      <div className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                        {index + 1}
-                      </div>
-                      <span className="text-muted-foreground">{step}</span>
-                    </div>
+                    'Market assessment and competitive analysis',
+                    'Market entry strategy development',
+                    'Partnership and distribution setup',
+                    'Brand campaigns and positioning',
+                    'Performance monitoring and optimization',
+                  ].map((step, i) => (
+                    <li key={step} className="flex gap-3 text-sm text-muted-foreground">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+                        {i + 1}
+                      </span>
+                      {step}
+                    </li>
                   ))}
-                </div>
+                </ol>
               </div>
-
-              {/* Benefits */}
-              <div className="bg-card p-8 rounded-2xl shadow-soft border border-border">
-                <h3 className="text-2xl font-bold text-card-foreground mb-6">Benefits</h3>
-                <div className="space-y-4">
+              <div className="section-card">
+                <h3 className="text-xl font-semibold mb-4">Benefits</h3>
+                <ul className="space-y-3">
                   {[
-                    "Faster market penetration with reduced risks",
-                    "Access to established local networks",
-                    "Regulatory compliance expertise",
-                    "Cost-effective market expansion",
-                    "Ongoing support and monitoring"
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="text-tertiary flex-shrink-0" size={20} />
-                      <span className="text-muted-foreground">{benefit}</span>
-                    </div>
+                    'Faster market penetration',
+                    'Established local networks',
+                    'Regulatory-aware expansion',
+                    'Cost-effective growth',
+                  ].map((b) => (
+                    <li key={b} className="flex gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="text-brand-purple shrink-0 mt-0.5" size={18} />
+                      {b}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
-
-            {/* CTA Section */}
-            <div className="mt-16 text-center">
-              <div className="bg-gradient-hero p-12 rounded-3xl text-white">
-                <h3 className="text-3xl font-bold mb-4">
-                  Ready to Expand Your Market Presence?
-                </h3>
-                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                  Let our experienced team help you establish a strong presence in the East African pharmaceutical market.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong" onClick={scrollToContact}>
-                    Schedule Consultation
-                  </Button>
-                </div>
-              </div>
+            <div className="mt-12 text-center">
+              <Button size="lg" className="btn-brand px-8" onClick={scrollToContact}>
+                Discuss Market Entry
+              </Button>
             </div>
           </div>
         </section>

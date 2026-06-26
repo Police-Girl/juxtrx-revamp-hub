@@ -13,7 +13,22 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "Manrope", "system-ui", "sans-serif"],
+        serif: ['"DM Serif Display"', "Georgia", "serif"],
+      },
       colors: {
+        brand: {
+          purple: "#6A1B9A",
+          blue: "#0077B6",
+          orange: "#FF8C00",
+          teal: "#00B4A6",
+          indigo: "#7B61FF",
+          gold: "#D4AF37",
+          magenta: "#E91E63",
+          navy: "#0B1528",
+          "navy-light": "#141E33",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

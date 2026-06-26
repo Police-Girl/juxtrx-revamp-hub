@@ -46,7 +46,7 @@ const Contact = () => {
   const services = [
     "Regulatory Consulting",
     "Product Registration",
-    "Pharmacy Operations", 
+    "Systems & Operations",
     "Brand Management",
     "Market Research",
     "Quality Assurance"
@@ -80,22 +80,22 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Get In <span className="text-primary">Touch</span>
+    <section id="contact" className="py-20 md:py-28 bg-white">
+      <div className="section-shell">
+        <div className="text-center mb-14 md:mb-16">
+          <p className="section-label mb-3">Contact</p>
+          <h2 className="text-3xl md:text-[2.5rem] font-serif text-foreground mb-5">
+            Get In <span className="text-gradient-brand">Touch</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss your pharmaceutical needs? Our expert team is here to help 
-            you navigate the healthcare landscape and achieve your business goals.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Ready to discuss your regulated-markets needs? Our team is here to help you
+            navigate compliance, systems, and growth across Kenya and East Africa.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-1 gap-16">
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-2xl shadow-strong border border-border max-w-3xl mx-auto w-full">
+          <div className="section-card p-8 max-w-3xl mx-auto w-full">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-card-foreground mb-4">
                 Send Us a Message
@@ -154,7 +154,7 @@ const Contact = () => {
                 <Textarea id="message" name="message" placeholder="Tell us about your project or requirements..." className="w-full h-32" required />
               </div>
 
-              <Button className="w-full" size="lg" type="submit" disabled={submitting}>
+              <Button className="w-full btn-brand" size="lg" type="submit" disabled={submitting}>
                 <Send className="mr-2" size={20} />
                 {submitting ? 'Sending…' : 'Send Message'}
               </Button>
