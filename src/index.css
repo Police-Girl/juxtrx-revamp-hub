@@ -77,18 +77,56 @@
   }
 
   @keyframes fade-in-up {
-    0% {
-      opacity: 0;
-      transform: translateY(16px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in-left {
+    0%   { opacity: 0; transform: translateX(-24px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fade-in-right {
+    0%   { opacity: 0; transform: translateX(24px); }
+    100% { opacity: 1; transform: translateX(0); }
   }
 
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  /* Scroll-reveal: elements start hidden, .is-visible triggers the animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .text-gradient-brand {
@@ -128,7 +166,7 @@
   }
 
   .section-card {
-    @apply rounded-md border border-border/80 bg-card p-6 transition-shadow hover:shadow-soft;
+    @apply rounded-md border border-border/80 bg-card p-6 transition-all duration-300 hover:shadow-medium hover:-translate-y-0.5;
   }
 
   .section-card-dark {
@@ -140,10 +178,14 @@
   }
 
   .btn-brand {
-    @apply bg-foreground text-background hover:bg-foreground/90 font-medium rounded-sm shadow-none;
+    @apply bg-foreground text-background hover:bg-foreground/90 font-medium rounded-sm shadow-none
+      transition-all duration-200
+      hover:shadow-[0_0_0_3px_hsl(174_72%_38%_/_0.18)];
   }
 
   .btn-brand-outline {
-    @apply border border-foreground/20 !bg-transparent text-foreground hover:!bg-muted hover:border-foreground/30 font-medium rounded-sm;
+    @apply border border-foreground/20 !bg-transparent text-foreground hover:!bg-muted hover:border-foreground/30 font-medium rounded-sm
+      transition-all duration-200
+      hover:shadow-[0_0_0_3px_hsl(220_20%_10%_/_0.08)];
   }
 }

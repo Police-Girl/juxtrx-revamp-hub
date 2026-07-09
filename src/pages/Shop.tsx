@@ -48,7 +48,7 @@ const Shop = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-hero text-white">
+        <section className="py-20 bg-foreground text-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
               <ShoppingCart className="text-white" size={48} />
@@ -130,7 +130,7 @@ const Shop = () => {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-subtle">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-gradient-hero p-12 rounded-3xl text-white">
+            <div className="bg-foreground p-12 rounded-3xl text-background">
               <h3 className="text-3xl font-bold mb-4">
                 Need Custom Solutions?
               </h3>
@@ -141,7 +141,7 @@ const Shop = () => {
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90 shadow-strong">
                   Contact Sales Team
                 </Button>
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 glass-effect">
+                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
                   Request Catalog
                 </Button>
               </div>
