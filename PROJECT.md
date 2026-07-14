@@ -10,10 +10,14 @@ A marketing and services website for **JMRC.intel**, a regulatory intelligence a
 | Route | Description |
 |---|---|
 | `/` | Main landing page |
-| `/services/ltr` | Local Trade Representative & Brand Management |
-| `/services/regulatory` | Regulatory Support & Registration |
-| `/services/systems` | Systems & Business Operations |
-| `/services/pharmacy` | Redirects → `/services/systems` (legacy) |
+| `/services/regulatory` | Regulatory Development |
+| `/services/systems` | Systems & Operations |
+| `/services/brand` | Brand Management |
+| `/services/creative` | Creative Operations |
+| `/services/trade` | Trade Development |
+| `/services/people` | People Improvement |
+| `/services/ltr` | Legacy redirect → `/services/trade` |
+| `/services/pharmacy` | Legacy redirect → `/services/systems` |
 | `/shop` | Pharmaceutical resources & products shop |
 | `*` | 404 Not Found |
 
@@ -23,22 +27,21 @@ A marketing and services website for **JMRC.intel**, a regulatory intelligence a
 
 1. **Header** — Navigation bar with logo
 2. **Hero** — Interactive split-screen hero with 4-slide system + trust strip (see below)
-3. **About** — Company background
-4. **Services** — Service cards linking to detail pages
-5. **CtaBand** — Call-to-action strip
-6. **Map** — Location via Mapbox
-7. **Contact** — Contact form (posts to `/api/contact.php`)
-8. **Footer** — Links, social, legal
+3. **About** — Company background, original copy, mission/vision, core values
+4. **Services** — 6 service cards each linking to a dedicated detail page
+5. **Map** — Location via Mapbox
+6. **Contact** — Contact form (posts to `/api/contact.php`)
+7. **Footer** — Links, social, legal
 
 ---
 
 ## Hero System (`HeroIntel` + `HeroIntelVisual`)
 
-Split-screen layout: 45% left / 55% right. Auto-advances every 6.5s, pauses on hover, keyboard navigable (← →).
+Split-screen layout: 45% left / 55% right. Auto-advances every 6.5s, pauses on hover, keyboard navigable (← →). CTAs are router-aware — navigate home first if triggered from a service detail page.
 
 | Slide | Title | Right Visual |
 |---|---|---|
-| 01 | Your Implementation Partner Across East Africa | Logo, service pillar chips, live indicator |
+| 01 | Proven Impact Across East Africa | Impact Overview dashboard — metric cards, service capability bars, live indicator |
 | 02 | Navigate Compliance With Confidence | Animated regulatory workflow (Submission → Review → Approval → Market Entry) |
 | 03 | Systems Designed For Sustainable Growth | Platform module progress bars + activity feed |
 | 04 | Regional Expertise. Local Execution. | SVG East Africa map — Kenya, Uganda, Tanzania, Rwanda, Ethiopia |
@@ -49,9 +52,14 @@ Trust strip below hero: 10+ Years · 200+ Submissions · 5 Markets · 500+ Partn
 
 ## Services Offered
 
-- **Local Trade Representative (LTR)** — Market entry, brand positioning, local partnerships in Kenya/East Africa
-- **Regulatory Support** — Compliance consulting, product registration, documentation, submission support
-- **Systems & Business Operations** — Process design, workflow automation, systems integration for regulated organizations
+| Service | Route | Page File |
+|---|---|---|
+| Regulatory Development | `/services/regulatory` | `ServiceRegulatory.tsx` |
+| Systems & Operations | `/services/systems` | `ServiceSystems.tsx` |
+| Brand Management | `/services/brand` | `ServiceBrand.tsx` |
+| Creative Operations | `/services/creative` | `ServiceCreative.tsx` |
+| Trade Development | `/services/trade` | `ServiceTrade.tsx` |
+| People Improvement | `/services/people` | `ServicePeople.tsx` |
 
 ---
 

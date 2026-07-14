@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import LogoLockup from '@/components/LogoLockup';
 
 const Footer = () => {
@@ -8,10 +8,11 @@ const Footer = () => {
   const location = useLocation();
 
   const quickLinks = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'Home',         id: 'home',     path: null         },
+    { name: 'About',        id: 'about',    path: '/about'     },
+    { name: 'Services',     id: 'services', path: null         },
+    { name: 'Our Partners', id: 'partners', path: '/partners'  },
+    { name: 'Contact',      id: 'contact',  path: null         },
   ];
 
   const scrollToSection = (id: string) => {
@@ -24,12 +25,12 @@ const Footer = () => {
   };
 
   const services = [
-    'Regulatory Development',
-    'Systems & Operations',
-    'Brand Management',
-    'Creative Operations',
-    'Trade Development',
-    'People Improvement',
+    { name: 'Regulatory Development', path: '/services/regulatory' },
+    { name: 'Systems & Operations',   path: '/services/systems'    },
+    { name: 'Brand Management',       path: '/services/brand'      },
+    { name: 'Creative Operations',    path: '/services/creative'   },
+    { name: 'Trade Development',      path: '/services/trade'      },
+    { name: 'People Improvement',     path: '/services/people'     },
   ];
 
   const socialLinks = [
@@ -69,12 +70,21 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </button>
+                  {link.path ? (
+                    <Link
+                      to={link.path}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(link.id)}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -84,8 +94,13 @@ const Footer = () => {
             <h4 className="font-medium mb-4 text-sm text-foreground">Services</h4>
             <ul className="space-y-2">
               {services.map((s) => (
-                <li key={s} className="text-sm text-muted-foreground">
-                  {s}
+                <li key={s.name}>
+                  <Link
+                    to={s.path}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>

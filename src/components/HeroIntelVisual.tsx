@@ -5,7 +5,6 @@ import {
   FileCheck, AlertCircle, ArrowRight,
   MapPin, Building2, Users, Award,
 } from 'lucide-react';
-import { logoMaster } from '@/lib/site-images';
 
 /* ─── shared helpers ─────────────────────────────────────── */
 const fadeUp = {
@@ -29,58 +28,81 @@ function ProgressBar({ pct, color }: { pct: number; color: string }) {
   );
 }
 
-/* ─── Slide 1: Logo / Brand Visual ──────────────────────── */
-export function LogoVisual() {
-  const pillars = [
-    { label: 'Strategy', color: 'bg-brand-blue/10 text-brand-blue border-brand-blue/20' },
-    { label: 'Regulatory', color: 'bg-brand-teal/10 text-brand-teal border-brand-teal/20' },
-    { label: 'Systems', color: 'bg-brand-purple/10 text-brand-purple border-brand-purple/20' },
-    { label: 'Creative Ops', color: 'bg-amber-50 text-amber-700 border-amber-200' },
-    { label: 'Brand Mgmt', color: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
-    { label: 'Capability Building', color: 'bg-rose-50 text-rose-700 border-rose-200' },
-  ];
+/* ─── Slide 1: Impact Overview Dashboard ────────────────── */
+const impactMetrics = [
+  { icon: Award,     val: '10+',  label: 'Years in Regulated Markets', color: 'text-brand-blue',   bg: 'bg-brand-blue/10',   border: 'border-brand-blue/20' },
+  { icon: FileCheck, val: '200+', label: 'Regulatory Submissions',     color: 'text-brand-teal',   bg: 'bg-brand-teal/10',   border: 'border-brand-teal/20' },
+  { icon: Globe,     val: '5',    label: 'East African Markets',       color: 'text-brand-purple', bg: 'bg-brand-purple/10', border: 'border-brand-purple/20' },
+  { icon: Users,     val: '500+', label: 'Partner Organisations',      color: 'text-amber-600',    bg: 'bg-amber-50',        border: 'border-amber-200' },
+];
 
+const services = [
+  { label: 'Local Trade Representation', pct: 95, color: 'bg-brand-blue' },
+  { label: 'Regulatory Support',         pct: 90, color: 'bg-brand-teal' },
+  { label: 'Systems & Operations',       pct: 82, color: 'bg-brand-purple' },
+];
+
+export function LogoVisual() {
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-6 p-2">
-      {/* logo */}
+    <div className="w-full h-full flex flex-col gap-3 p-1">
+      {/* metric cards */}
       <motion.div
-        className={`${glass} w-full flex items-center justify-center p-8`}
+        className={`${glass} p-4`}
         variants={fadeUp} initial="hidden" animate="show" custom={0}
       >
-        <img
-          src={logoMaster}
-          alt="JMRC.intel"
-          className="w-full max-w-[280px] h-auto object-contain"
-        />
-      </motion.div>
-
-      {/* tagline */}
-      <motion.p
-        className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground text-center"
-        variants={fadeUp} initial="hidden" animate="show" custom={0.15}
-      >
-        Creative Intelligence for Regulated Markets
-      </motion.p>
-
-      {/* service pillars */}
-      <motion.div
-        className="flex flex-wrap gap-2 justify-center"
-        variants={fadeUp} initial="hidden" animate="show" custom={0.25}
-      >
-        {pillars.map((p) => (
-          <span
-            key={p.label}
-            className={`rounded-full border px-3 py-1 text-[11px] font-medium ${p.color}`}
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs font-semibold text-foreground/70 uppercase tracking-wider">Impact Overview</span>
+          <motion.div
+            className="flex items-center gap-1.5 text-[10px] text-emerald-600 font-medium"
+            animate={{ opacity: [1, 0.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            {p.label}
-          </span>
-        ))}
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 inline-block" />
+            Active
+          </motion.div>
+        </div>
+        <div className="grid grid-cols-2 gap-2.5">
+          {impactMetrics.map((m, i) => (
+            <motion.div
+              key={m.label}
+              className={`flex items-center gap-2.5 rounded-lg border p-2.5 ${m.bg} ${m.border}`}
+              variants={fadeUp} initial="hidden" animate="show" custom={0.1 + i * 0.08}
+            >
+              <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md ${m.bg}`}>
+                <m.icon size={14} className={m.color} />
+              </div>
+              <div>
+                <div className={`text-base font-bold leading-none ${m.color}`}>{m.val}</div>
+                <div className="text-[10px] text-muted-foreground leading-tight mt-0.5">{m.label}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
 
-      {/* live indicator */}
+      {/* service capability bars */}
       <motion.div
-        className={`${glass} w-full p-3 flex items-center gap-2.5`}
-        variants={fadeUp} initial="hidden" animate="show" custom={0.35}
+        className={`${glass} p-4`}
+        variants={fadeUp} initial="hidden" animate="show" custom={0.4}
+      >
+        <div className="text-xs font-semibold text-foreground/70 uppercase tracking-wider mb-3">Service Capabilities</div>
+        <div className="flex flex-col gap-2.5">
+          {services.map((s) => (
+            <div key={s.label} className="flex flex-col gap-1">
+              <div className="flex justify-between text-xs">
+                <span className="text-muted-foreground">{s.label}</span>
+                <span className="font-semibold text-foreground tabular-nums">{s.pct}%</span>
+              </div>
+              <ProgressBar pct={s.pct} color={s.color} />
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* tagline footer */}
+      <motion.div
+        className={`${glass} p-3 flex items-center gap-2.5`}
+        variants={fadeUp} initial="hidden" animate="show" custom={0.65}
       >
         <motion.div
           className="h-2 w-2 rounded-full bg-emerald-500 shrink-0"

@@ -4,6 +4,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Award, FileCheck, Globe, Users }
 import { Button } from '@/components/ui/button';
 import { useCountUp } from '@/hooks/use-count-up';
 import { useInView } from '@/hooks/use-in-view';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   LogoVisual,
   RegulatoryVisual,
@@ -16,8 +17,8 @@ const slides = [
   {
     id: 1,
     num: '01',
-    title: 'Your Implementation Partner Across East Africa',
-    body: 'We help organizations navigate regulated markets through strategic planning, compliance expertise, operational systems, and implementation support.',
+    title: 'Proven Impact Across East Africa',
+    body: 'Measurable results in regulatory development, systems & operations, brand management, creative operations, trade development, and people improvement across Kenya and East Africa.',
     Visual: LogoVisual,
     badge: null as null | { label: string; sub: string },
   },
@@ -87,6 +88,17 @@ export default function HeroIntel() {
   const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const { ref: trustRef, inView: trustInView } = useInView();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollTo = (id: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const goTo = useCallback((idx: number) => {
     setCurrent(idx);
@@ -207,14 +219,14 @@ export default function HeroIntel() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Button size="lg" className="btn-brand px-7 h-11" asChild>
-                <a href="#contact" className="flex items-center gap-2">
-                  Partner With Us
+              <Button size="lg" className="btn-brand px-7 h-11" onClick={() => scrollTo('contact')}>
+                <span className="flex items-center gap-2">
+                  Get In Touch
                   <ArrowRight size={16} />
-                </a>
+                </span>
               </Button>
-              <Button size="lg" variant="outline" className="btn-brand-outline px-7 h-11" asChild>
-                <a href="#services">Explore Our Services</a>
+              <Button size="lg" variant="outline" className="btn-brand-outline px-7 h-11" onClick={() => scrollTo('services')}>
+                Explore Our Services
               </Button>
             </motion.div>
 

@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 function sanitize(string $value): string {
-  return trim(filter_var($value, FILTER_SANITIZE_STRING));
+  return htmlspecialchars(strip_tags(trim($value)), ENT_QUOTES, 'UTF-8');
 }
 
 $firstName = sanitize($_POST['firstName'] ?? '');

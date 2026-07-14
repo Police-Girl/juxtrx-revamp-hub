@@ -1,11 +1,11 @@
-import { Shield, CheckCircle, ArrowLeft } from 'lucide-react';
+import { Tag, CheckCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect } from 'react';
 
-const ServiceRegulatory = () => {
+const ServiceBrand = () => {
   const navigate = useNavigate();
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const scrollToContact = () => {
@@ -22,13 +22,13 @@ const ServiceRegulatory = () => {
             <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors">
               <ArrowLeft size={20} /> Back to Home
             </Link>
-            <Shield className="text-secondary mb-6" size={48} strokeWidth={1.5} />
-            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Regulatory Development</h1>
+            <Tag className="text-secondary mb-6" size={48} strokeWidth={1.5} />
+            <h1 className="text-4xl md:text-5xl font-serif mb-6 text-foreground">Brand Management</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Navigating the regulatory landscape can be complex and time-consuming, particularly for
-              healthcare and pharmaceutical companies entering new markets. JMRC.intel provides end-to-end
-              regulatory support — from compliance consulting to product registration — ensuring a smooth,
-              efficient market entry in full adherence to local requirements.
+              JMRC.intel helps pharmaceutical and healthcare companies build strong, market-ready brand
+              identities across East Africa. From positioning and messaging to market entry campaigns,
+              we create impactful strategies that resonate with consumers and drive sustainable revenue
+              in regulated markets.
             </p>
           </div>
         </section>
@@ -40,13 +40,13 @@ const ServiceRegulatory = () => {
                 <h3 className="text-xl font-semibold mb-4">Key Capabilities</h3>
                 <ul className="space-y-3">
                   {[
-                    'Regulatory compliance consulting',
-                    'Product registration & licensing',
-                    'Dossier preparation & documentation',
-                    'Submission to regulatory authorities',
-                    'Pharmacovigilance support',
-                    'Market Authorization Hosting',
-                    'Import coordination & permits',
+                    'Brand identity development & positioning',
+                    'Market entry strategy & planning',
+                    'Product launch campaigns',
+                    'Consumer & market intelligence',
+                    'Regulatory-aware marketing',
+                    'Competitive landscape analysis',
+                    'Brand performance monitoring',
                   ].map((f) => (
                     <li key={f} className="flex gap-2 text-sm text-muted-foreground">
                       <CheckCircle className="text-secondary shrink-0 mt-0.5" size={18} /> {f}
@@ -58,12 +58,11 @@ const ServiceRegulatory = () => {
                 <h3 className="text-xl font-semibold mb-4">Our Process</h3>
                 <ol className="space-y-3">
                   {[
-                    'Regulatory landscape assessment',
-                    'Gap analysis & compliance mapping',
-                    'Dossier review and preparation',
-                    'Submission to relevant authorities',
-                    'Follow-up and query resolution',
-                    'Post-registration monitoring & support',
+                    'Market & audience research',
+                    'Brand strategy & positioning development',
+                    'Creative concept & messaging',
+                    'Campaign execution & rollout',
+                    'Performance tracking & optimisation',
                   ].map((step, i) => (
                     <li key={step} className="flex gap-3 text-sm text-muted-foreground">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
@@ -78,14 +77,14 @@ const ServiceRegulatory = () => {
                 <h3 className="text-xl font-semibold mb-4">Outcomes</h3>
                 <ul className="space-y-3">
                   {[
-                    'Full regulatory compliance',
-                    'Faster approval timelines',
-                    'Reduced regulatory risk',
-                    'Smooth market entry',
-                    'Ongoing post-market support',
+                    'Strong, differentiated brand identity',
+                    'Faster market penetration',
+                    'Compliant marketing materials',
+                    'Increased consumer trust',
+                    'Sustainable revenue growth',
                   ].map((b) => (
                     <li key={b} className="flex gap-2 text-sm text-muted-foreground">
-                      <CheckCircle className="text-brand-purple shrink-0 mt-0.5" size={18} /> {b}
+                      <CheckCircle className="text-brand-gold shrink-0 mt-0.5" size={18} /> {b}
                     </li>
                   ))}
                 </ul>
@@ -93,7 +92,7 @@ const ServiceRegulatory = () => {
             </div>
             <div className="mt-12 text-center">
               <Button size="lg" className="btn-brand px-8" onClick={scrollToContact}>
-                Get Regulatory Support
+                Build Your Brand
               </Button>
             </div>
           </div>
@@ -104,4 +103,4 @@ const ServiceRegulatory = () => {
   );
 };
 
-export default ServiceRegulatory;
+export default ServiceBrand;

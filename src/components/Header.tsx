@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import LogoLockup from '@/components/LogoLockup';
 
 const Header = () => {
@@ -10,10 +10,11 @@ const Header = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Services', id: 'services' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'Home',        id: 'home',     path: null        },
+    { name: 'About',       id: 'about',    path: '/about'    },
+    { name: 'Services',    id: 'services', path: null        },
+    { name: 'Our Partners',id: 'partners', path: '/partners' },
+    { name: 'Contact',     id: 'contact',  path: null        },
   ];
 
   const scrollToSection = (id: string) => {
@@ -38,17 +39,24 @@ const Header = () => {
 
           <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.id)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {item.name}
-              </button>
+              item.path ? (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
-            <Button size="sm" className="btn-brand ml-1 px-5" onClick={() => scrollToSection('contact')}>
-              Partner With Us
-            </Button>
           </nav>
 
           <button
@@ -63,17 +71,25 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="lg:hidden pb-5 border-t border-border/60 pt-4 flex flex-col gap-1">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.id)}
-                className="text-left text-foreground/80 font-medium py-2.5 hover:text-foreground"
-              >
-                {item.name}
-              </button>
+              item.path ? (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-left text-foreground/80 font-medium py-2.5 hover:text-foreground"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-foreground/80 font-medium py-2.5 hover:text-foreground"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
-            <Button className="btn-brand w-fit mt-3" onClick={() => scrollToSection('contact')}>
-              Partner With Us
-            </Button>
           </nav>
         )}
       </div>
