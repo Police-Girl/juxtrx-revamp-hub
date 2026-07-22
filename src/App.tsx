@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import JsonLd from "@/components/JsonLd";
+import CursorGlow from "@/components/CursorGlow";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -16,6 +17,7 @@ import Shop from "./pages/Shop";
 
 const App = () => (
   <>
+    <CursorGlow />
     <JsonLd />
     <Toaster />
     <Sonner />

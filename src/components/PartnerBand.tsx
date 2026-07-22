@@ -1,6 +1,7 @@
 import { ArrowRight, Heart, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import Reveal from '@/components/Reveal';
 
 const pillars = [
   'Holistic wellness products',
@@ -16,7 +17,7 @@ const PartnerBand = () => (
       <div className="grid lg:grid-cols-[1fr_1fr] gap-12 items-center">
 
         {/* Left — text */}
-        <div>
+        <Reveal>
           <p className="section-label mb-4">Our Partner Pharmacy</p>
           <h2 className="text-3xl md:text-[2.5rem] font-serif text-foreground leading-tight mb-5">
             Nourish &amp; Bloom{' '}
@@ -42,10 +43,10 @@ const PartnerBand = () => (
               <ArrowRight size={16} />
             </Link>
           </Button>
-        </div>
+        </Reveal>
 
         {/* Right — card */}
-        <div className="relative">
+        <Reveal delay={150} className="relative">
           <div className="rounded-2xl border border-border/60 bg-gradient-to-br from-rose-50/60 via-white to-teal-50/40 p-8 shadow-medium">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-rose-100">
@@ -85,7 +86,7 @@ const PartnerBand = () => (
               Integrated pharmacy, wellness &amp; beauty solutions
             </div>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import Reveal from '@/components/Reveal';
 
 const contactInfo = [
   {
@@ -77,7 +78,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="section-shell">
-        <div className="text-center mb-14 md:mb-16">
+        <Reveal className="text-center mb-14 md:mb-16">
           <p className="section-label mb-3">Contact</p>
           <h2 className="text-3xl md:text-[2.5rem] font-serif text-foreground mb-5">
             Get In <span className="text-gradient-brand">Touch</span>
@@ -86,14 +87,14 @@ const Contact = () => {
             Ready to discuss your regulated-markets needs? Our team is here to help you
             navigate compliance, systems, and growth across Kenya and East Africa.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-[1fr_2fr] gap-8 items-start">
 
           {/* Contact Info Cards */}
           <div className="flex flex-col gap-4">
-            {contactInfo.map(({ icon: Icon, iconColor, title, details, action, actionLink }) => (
-              <div key={title} className="section-card p-5 flex gap-4 items-start">
+            {contactInfo.map(({ icon: Icon, iconColor, title, details, action, actionLink }, i) => (
+              <Reveal key={title} delay={i * 80} className="section-card p-5 flex gap-4 items-start">
                 <div className="shrink-0 mt-0.5">
                   <Icon className={iconColor} size={22} strokeWidth={1.5} />
                 </div>
@@ -113,12 +114,12 @@ const Contact = () => {
                     </a>
                   )}
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
           {/* Contact Form */}
-          <div className="section-card p-8 w-full">
+          <Reveal delay={100} className="section-card p-8 w-full">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-card-foreground mb-2">Send Us a Message</h3>
               <p className="text-muted-foreground text-sm">
@@ -190,11 +191,10 @@ const Contact = () => {
                 {submitting ? 'Sending…' : 'Send Message'}
               </Button>
             </form>
-          </div>
+          </Reveal>
         </div>
 
-        {/* Map */}
-        <div className="mt-10">
+        <Reveal delay={150} className="mt-10">
           <div className="relative w-full h-80 rounded-md overflow-hidden border border-border/80">
             <iframe
               title="JMRC.intel Office Location"
@@ -216,7 +216,7 @@ const Contact = () => {
               Open in Google Maps →
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
