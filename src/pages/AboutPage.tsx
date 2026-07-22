@@ -83,7 +83,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent"> {*removed the white background to allow gradient background to show through*}
       <Header />
       <main>
         {/* Hero */}
@@ -104,7 +104,7 @@ const AboutPage = () => {
         </section>
 
         {/* Who we are */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-transparent">
           <div className="section-shell max-w-4xl">
             <h2 className="text-2xl font-serif text-foreground mb-6">
               Pharmacy Operations, Benefit Management &amp; Consultancy
@@ -154,7 +154,7 @@ const AboutPage = () => {
         </section>
 
         {/* Core Values */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-transparent">
           <div className="section-shell max-w-4xl">
             <div className="max-w-2xl mb-10">
               <p className="section-label mb-3">What Drives Us</p>
