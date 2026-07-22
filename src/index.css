@@ -66,16 +66,16 @@
   }
 
   body {
-   @apply text-foreground font-sans antialiased;
+  @apply text-foreground font-sans antialiased;
   background-color: #ffffff;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(224, 231, 255, 0.5) 0px, transparent 50%),   /* Top-left soft blue */
-    radial-gradient(at 100% 0%, rgba(254, 226, 226, 0.5) 0px, transparent 50%), /* Top-right soft pink */
-    radial-gradient(at 100% 100%, rgba(207, 250, 254, 0.5) 0px, transparent 50%),/* Bottom-right teal */
-    radial-gradient(at 0% 100%, rgba(254, 240, 138, 0.4) 0px, transparent 50%);  /* Bottom-left yellow */
+    radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.25) 0px, transparent 50%),   /* Vibrant Purple */
+    radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.25) 0px, transparent 50%),  /* Vibrant Pink/Rose */
+    radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.25) 0px, transparent 50%),/* Vibrant Teal */
+    radial-gradient(at 0% 100%, rgba(234, 179, 8, 0.25) 0px, transparent 50%);  /* Vibrant Gold */
   background-attachment: fixed;
   min-height: 100vh;
-  }
+}
 
   h1,
   h2,
