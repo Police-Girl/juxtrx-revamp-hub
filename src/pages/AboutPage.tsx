@@ -83,7 +83,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transparent"> {*removed the white background to allow gradient background to show through*}
+    <div className="min-h-screen bg-transparent"> {/*removed the white background to allow gradient background to show through*/}
       <Header />
       <main>
         {/* Hero */}

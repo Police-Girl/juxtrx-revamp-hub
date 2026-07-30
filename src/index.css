@@ -66,16 +66,16 @@
   }
 
   body {
-  @apply text-foreground font-sans antialiased;
-  background-color: #ffffff;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.25) 0px, transparent 50%),   /* Vibrant Purple */
-    radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.25) 0px, transparent 50%),  /* Vibrant Pink/Rose */
-    radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.25) 0px, transparent 50%),/* Vibrant Teal */
-    radial-gradient(at 0% 100%, rgba(234, 179, 8, 0.25) 0px, transparent 50%);  /* Vibrant Gold */
-  background-attachment: fixed;
-  min-height: 100vh;
-}
+    @apply text-foreground font-sans antialiased;
+    background-color: transparent;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.25) 0px, transparent 50%),   /* Vibrant Purple */
+      radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.25) 0px, transparent 50%),  /* Vibrant Pink/Rose */
+      radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.25) 0px, transparent 50%),/* Vibrant Teal */
+      radial-gradient(at 0% 100%, rgba(234, 179, 8, 0.25) 0px, transparent 50%);  /* Vibrant Gold */
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
 
   h1,
   h2,
@@ -162,7 +162,7 @@
   }
 
   .site-header {
-    @apply sticky top-0 z-50 border-b border-border/70 bg-white/90 backdrop-blur-md;
+    @apply sticky top-0 z-50 border-b border-border/70 bg-white/40 backdrop-blur-md;
   }
 
   .section-shell {
@@ -174,17 +174,17 @@
   }
 
   .section-card {
-    @apply rounded-md border border-border/80 bg-white/80 backdrop-blur-sm p-6 transition-all duration-300 hover:shadow-medium hover:-translate-y-0.5;
+    @apply rounded-md border border-border/80 bg-white/60 backdrop-blur-sm p-6 transition-all duration-300 hover:shadow-medium hover:-translate-y-0.5;
   }
 
   .section-card-dark {
     @apply rounded-md border border-border bg-muted p-6;
   }
 
-  .page-hero {
-    @apply py-16 md:py-24 border-b border-border/60;
-    background: linear-gradient(180deg, hsl(220 30% 97% / 0.7) 0%, transparent 100%);
-  }
+ .page-hero {
+  @apply py-16 md:py-24 border-b border-border/60 bg-transparent;
+  background: transparent !important;
+}
 
   .btn-brand {
     @apply bg-foreground text-background hover:bg-foreground/90 font-medium rounded-sm shadow-none

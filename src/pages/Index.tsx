@@ -7,9 +7,9 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => (
-  <div className="min-h-screen bg-background">
+  <div className="min-h-screen bg-transparent">
     <Header />
-    <main>
+    <main className="bg-transparent">
       <Hero />
       <About />
       <Services />
